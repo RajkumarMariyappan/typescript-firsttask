@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<style type="text/css">
+body {
+	
+    background-image: url('exterior.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+</head>
+<body>
+	<h1 style="text-align: center; color: rgb(34, 241, 15);">Registration form</h1>
+	<br>
+    <hr color="black">
+	<br>
+	<form style="text-align:center">
+		FirstName : <input type="text" id="first" placeholder="Firstname" required><br>
+		<br> LastName : <input type="text" id="last" placeholder="Lastname" required><br>
+		<br> UserName : <input type="text" placeholder="Username" required><br>
+		<br> Password : <input type="password" placeholder="Password" required><br>
+		<br> DOB : <input type="date"  required><br>
+		<br> phoneNumber : <input type="number" id="demo" placeholder="Phonenumber" min="7900000000" max="9900000000" required><br>
+        <p id="disp"></p>
+		
+        <button onclick="myFunction()">
+		 <a style="text-decoration: none" href="objects.html">Submit</a></button><br>
+	</form>
+
+
+    <script>
+   function myFunction() {
+
+    var x=document.getElementById("first").value;
+    var y=document.getElementById("last").value;
+    if (typeof(Storage) !== "undefined") {
+    localStorage.setItem("lastname", x);
+    localStorage.setItem("firstname", y);
+      } 
+else {
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+    
+    let dem = (document.getElementById("demo").value);
+    phone = (dem >= 7900000000 && dem<= 9900000000 ) ? "Phone Number is " : "Phone Number is not";
+    document.getElementById("disp").innerHTML = phone + " valid";
+
+
+
+    }
+    </script>
+</body>
+</html>
